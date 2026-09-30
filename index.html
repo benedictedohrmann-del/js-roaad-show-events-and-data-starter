@@ -8,29 +8,25 @@
 </head>
 <body>
 
+    <main>
+        <section id="scene" class="scene">
+            <div id="sun"></div>
+            <div class="bg">
+            <img src="img/red-car.png" id="redCar" class="car1">
+            <img src="img/car.gif" id="policeCar" class="car2">
+            <img src="img/light-blue-car.png" id="blueCar" class="car3">
+            </div>
+
+        </section>
+
+            <div id="tooltip" class="tooltip" aria-live="polite"></div>
+
+    </main>
+
     <!--
     Skriv selv HTML-strukturen herunder. Brug class og id præcis som skrevet,
     ellers kan CSS og JavaScript ikke finde elementerne.
 
-    1. Et <main>-element, som omslutter hele siden.
-
-    2. Inde i <main>: et <section>-element med id="scene" og class="scene" (himlen).
-
-    3. Inde i section.scene:
-         - et <div> med id="sun" og class="sun" (solen - bliver til en måne om natten)
-         - et <div> med class="bg" (vejen/baggrunden, der kører - den skal ikke have et id,
-           fordi JavaScript ikke bruger den)
-
-    4. Inde i div.bg: tre <img>-elementer. Husk src, id, class og en god alt-tekst:
-         src="img/red-car.png"         id="redCar"     class="car1"
-         src="img/car.gif"             id="policeCar"  class="car2"
-         src="img/light-blue-car.png"  id="blueCar"    class="car3"
-
-    5. Efter section.scene, men stadig inde i <main>:
-         et <div> med id="tooltip" og class="tooltip".
-         Husk fra ARIA-øvelsen: giv den også aria-live="polite",
-         så skærmlæsere læser teksten op, når den skifter.
-    -->
 
     <!--
     ===========================================================
@@ -59,6 +55,8 @@
 
 
     <!-- Husk fra dag 1: skriv scriptet, der linker til js/script.js, herunder -->
+    
+    <script src="js/script.js"></script>
 
 </body>
 </html>

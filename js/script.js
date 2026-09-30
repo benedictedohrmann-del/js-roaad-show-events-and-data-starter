@@ -1,5 +1,5 @@
 // Husk fra dag 1: skriv "use strict" herunder
-
+"use strict";
 
 
 /* ---------------------------------------------------------
@@ -22,20 +22,38 @@ const cars = [
         sound: "sound/red-car-horn.wav"
     },
 
-    // Skriv selv: et objekt for politibilen med samme nøgler som ovenfor.
-    //   id: "policeCar", brand: "Volvo", model: "242", year: 1982,
-    //   color: "Politibil", fuel: "Diesel", sound: "sound/police-car-sound.wav"
+     {
+        id: "policeCar",
+        brand: "Volvo",
+        model: "242",
+        year: 1982,
+        color: "Blå og hvid",
+        fuel: "Diesel",
+        sound: "sound/police-car-sound.wav"
+    },
 
-    // Skriv selv: et objekt for den blå bil.
-    //   id: "blueCar", brand: "Volkswagen", model: "Passat", year: 1979,
-    //   color: "Lyseblå", fuel: "Diesel", sound: "sound/blue-car-sound.wav"
+     {
+        id: "blueCar",
+        brand: "Volkwagen",
+        model: "passat",
+        year: 1979,
+        color: "Lyseblå",
+        fuel: "Diesel",
+        sound: "sound/blue-car-sound.wav"
+    },
 
-    // Husk komma mellem objekterne!
-];
+   ];
 
 // Test dit array: åbn konsollen i browseren (F12) og se, hvad der bliver skrevet ud.
 console.log(cars);
 console.log(cars[0].brand);
+
+console.log(cars);
+console.log(cars[1].brand);
+
+console.log(cars);
+console.log(cars[2].brand);
+
 
 // Nyt i dag: forEach gennemløber et array og kører koden én gang for hver bil.
 // Sådan er en forEach bygget op:
@@ -46,6 +64,12 @@ console.log(cars[0].brand);
 // Skriv selv: brug forEach til at gennemløbe cars-arrayet.
 // Skriv hver bils brand ud i konsollen med console.log(car.brand).
 // Du skulle gerne se tre linjer i konsollen: Ford, Volvo og Volkswagen.
+
+cars.forEach(function(car){
+console.log(car.brand);
+}
+);
+
 //
 // Ekstra: skriv også model og årgang ud på samme linje.
 
@@ -63,6 +87,9 @@ const getTooltip = document.getElementById("tooltip");
 //
 // Husk: class bruges til CSS (udseende), id bruges til JavaScript.
 
+const getSun = document.getElementById("sun");
+const getScene = document.getElementById("scene");
+
 
 
 /* ---------------------------------------------------------
@@ -75,7 +102,11 @@ const getTooltip = document.getElementById("tooltip");
 // og fjerner den, hvis den er der. Det er samme idé som din if/else i billedskift-opgaven,
 // men toggle klarer det på én linje. Selve udseendet står i CSS'en under .scene.night.
 
+getSun.addEventListener(click,function(){
+   getScene.classList.add("night");
 
+}
+);
 
 /* ---------------------------------------------------------
    4. FUNKTIONER
@@ -95,6 +126,9 @@ function showTooltip(car) {
     getTooltip.innerHTML = `
         <strong>${car.brand} ${car.model}</strong><br>
         Årgang: ${car.year}<br>
+        Farve: ${car.color}<br>
+        Brændstof: ${car.fuel}<br>
+        
     `;
     // Skriv selv: tilføj to linjer mere inde i backticks ovenfor: farve (car.color) og brændstof (car.fuel).
 
@@ -107,11 +141,17 @@ function showTooltip(car) {
     clearTimeout(tooltipTimer);
     tooltipTimer = setTimeout(hideTooltip, 4000);
 }
+function hideTooltip() {
+getTooltip.classList.remove("is-visible");
+}
 
 // Skriv selv en funktion, der hedder hideTooltip.
 // Den skal fjerne klassen "is-visible" fra getTooltip. Brug classList.remove - det modsatte af classList.add.
 
-
+function playSound(car) {
+   let audio = new audio(car.sound);
+   audio.play();
+}
 
 // Skriv selv en funktion, der hedder playSound, og som tager imod parameteren car.
 //
